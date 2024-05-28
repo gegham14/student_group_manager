@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Group List</title>
+    <link rel="stylesheet" href="{% static 'core/styles.css' %}">
+</head>
+<body>
+    <h1>Groups</h1>
+    <ul>
+        {% for group in groups %}
+            <li>
+                <h2>{{ group.name }}</h2>
+                <ul>
+                    {% for student in group.student_set.all %}
+                        <li>{{ student.name }}</li>
+                    {% endfor %}
+                </ul>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
